@@ -1,20 +1,26 @@
 import static org.testng.Assert.assertEquals;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+//import org.testng.annotations.AfterMethod;
+//import org.testng.annotations.BeforeMethod;
+//import org.testng.annotations.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class CILabTest {
 
     private CILabInterface myString;
 
-    @BeforeMethod
+//    @BeforeMethod
+    @BeforeEach
     public void setUp() {
         myString = new CILab();
     }
 
-    @AfterMethod
+//    @AfterMethod
+    @AfterEach
     public void tearDown() {
         myString = null;
     }
