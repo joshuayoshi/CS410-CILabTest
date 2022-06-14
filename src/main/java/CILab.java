@@ -30,30 +30,24 @@ public class CILab implements CILabInterface {
      */
     @Override
     public boolean detectCapitalUse() {
-    	boolean flag = true;
-    	//Check for all capitals
+    	boolean hasUppercaseAfterFirstCharacter = false;
+    	boolean hasLowercaseAfterFirstCharacter = false;
+    	boolean firstCharacterIsCapital = false;
+    	//Return true if length of string is 1
+    	if(myString.length() <= 1) return true;
     	for(int i = 1; i < myString.length(); i++) {
-    		if(Character.isLowerCase(myString.charAt(0))) {
-    			flag = false;
-    			break;
-    		}
+    		if(Character.isUpperCase(myString.charAt(i))) hasUppercaseAfterFirstCharacter = true;
+    		if(Character.isLowerCase(myString.charAt(i))) hasLowercaseAfterFirstCharacter = true;
     	}
-    	if(flag) return true;
-    	//Check for all lowercase
-    	for(int i = 1; i < myString.length(); i++) {
-    		if(Character.isUpperCase(myString.charAt(0))) {
-    			flag = false;
-    			break;
-    		}
-    	}
-    	if(flag) return true;
-    	//Check for first character capitalized and remaining characters uncapitalized
-    	if(Character.isUpperCase(myString.charAt(0))) {
-    		for(int i = 1; i < myString.length(); i++) {
-    			if(Character.isUpperCase(myString.charAt(0))) return false;
-    		}
-    	}
-    	return true;
+    	if(Character.isUpperCase(myString.charAt(0))) firstCharacterIsCapital = true;
+
+    	//All capitals
+    	if(firstCharacterIsCapital && !hasLowercaseAfterFirstCharacter) return true;
+    	//Only first character capital 
+    	else if (firstCharacterIsCapital && !hasUppercaseAfterFirstCharacter) return true;
+    	//No capitals
+    	else if (!firstCharacterIsCapital && !hasUppercaseAfterFirstCharacter) return true;
+    	else return false;
     }
 
 }

@@ -28,10 +28,57 @@ public class CILabTest {
         assertEquals(expected, actual);
     }
     
-//    @Test
-//    public void detectCapitalUseTest2() {
-//        fail("Not yet implemented");
-//    }
+    @Test
+    public void detectCapitalUseTest2() {
+    	CILab s = new CILab();
+    	s.setString("ducKLing");
+    	boolean expected = false;
+    	boolean actual = s.detectCapitalUse();
+        assertEquals(expected, actual);
+    }
 
-
+    @Test
+    public void detectCapitalUseTest3() {
+    	CILab s = new CILab();
+    	s.setString("duckling");
+    	boolean expected = true;
+    	boolean actual = s.detectCapitalUse();
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+    public void detectCapitalUseTest4() {
+    	CILab s = new CILab();
+    	s.setString("GIT");
+    	boolean expected = true;
+    	boolean actual = s.detectCapitalUse();
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+    public void detectCapitalUseTest5() {
+    	CILab s = new CILab();
+    	s.setString("cAPITAL");
+    	boolean expected = false;
+    	boolean actual = s.detectCapitalUse();
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+    public void detectCapitalUseTest6() {
+    	CILab s = new CILab();
+    	s.setString("a");
+    	boolean expected = true;
+    	boolean actual = s.detectCapitalUse();
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+    public void detectCapitalUseTest7() {
+    	CILab s = new CILab();
+    	s.setString("b");
+    	boolean expected = true;
+    	boolean actual = s.detectCapitalUse();
+        assertEquals(expected, actual);
+    }
 }
